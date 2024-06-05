@@ -18,6 +18,13 @@ var InvoService = ServiceStruct{
 	sert: service.NewService(),
 }
 
+// @Tags CheckApi
+// @Summary 检测测试
+// @accept application/json
+// @Produce application/json
+// @Param data query request.Req true "查询渠道"
+// @Success 200 {string} string "{"success":true,"data":{},"msg":"查询成功"}"
+// @Router /router/addr [get]
 func Check(c *gin.Context) {
 	//requestJson := request.Req{}
 	//if err := c.BindJSON(&requestJson); err != nil {
@@ -26,7 +33,6 @@ func Check(c *gin.Context) {
 	//	return
 	//}
 
-	fmt.Println("2222222222222222222")
 	logic := InvoService.sert.Logic()
 	fmt.Println(logic)
 }

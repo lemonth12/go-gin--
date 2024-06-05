@@ -27,7 +27,7 @@ func initCmdParams(c *cobra.Command) {
 func Run(ctx context.Context, httpPort uint) error {
 	ch := make(chan error)
 	go func() {
-		ch <- httpserv.Run1(ctx, httpPort)
+		ch <- httpserv.Start(ctx, httpPort)
 	}()
 	select {
 	case <-ctx.Done():

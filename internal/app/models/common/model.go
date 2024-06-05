@@ -1,11 +1,11 @@
-package global
+package common
 
 import (
 	"gorm.io/gorm"
 	"time"
 )
 
-type GVA_MODEL struct {
+type GLOBAL_MODEL struct {
 	ID        uint           `form:"ID" gorm:"primarykey"` // 主键ID
 	CreatedAt time.Time      // 创建时间
 	UpdatedAt time.Time      // 更新时间

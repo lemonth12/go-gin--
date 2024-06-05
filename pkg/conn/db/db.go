@@ -11,7 +11,6 @@ import (
 )
 
 func GormMysql(config config.MysqlConf) (error, *gorm.DB) {
-	fmt.Println(config.User, "55555555555", config.PassWord)
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?parseTime=true&loc=Local&collation=utf8mb4_unicode_ci", config.User, config.PassWord, config.Host, config.Port, config.Database)
 	mysqlConfig := mysql.Config{
 		DSN:                       dsn,   // DSN data source name
@@ -22,7 +21,7 @@ func GormMysql(config config.MysqlConf) (error, *gorm.DB) {
 		Logger: logger.Default.LogMode(logger.Silent),
 	})
 	if err != nil {
-		log.Errorf("mysql conn fail %v", err)
+		log.Logger.Errorf("mysql conn fail %v", err)
 		return err, db
 	}
 	return nil, db

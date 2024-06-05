@@ -2,8 +2,6 @@ package cmd
 
 import (
 	"errors"
-	"github.com/hjin-me/go-utils/v2/logex"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 	"os"
 	"preject/cmd/servercmd"
@@ -21,10 +19,10 @@ func Execute(version, commitId string) {
 	Version = version
 	CommitId = commitId
 
-	logex.Init(logrus.Fields{
-		"version":   Version,
-		"commit_id": CommitId,
-	}, true)
+	//logex.Init(logrus.Fields{
+	//	"version":   Version,
+	//	"commit_id": CommitId,
+	//}, true)
 
 	//可启用多个服务
 	rootCmd.AddCommand(servercmd.Cmd)

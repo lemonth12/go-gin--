@@ -4,12 +4,15 @@ import (
 	"context"
 	"fmt"
 	"github.com/gin-gonic/gin"
+	swaggerFiles "github.com/swaggo/files"
+	ginSwagger "github.com/swaggo/gin-swagger"
 	"net/http"
+	_ "preject/docs"
 	"preject/internal/app/router"
 	"time"
 )
 
-func Run1(ctx context.Context, port uint) error {
+func Start(ctx context.Context, port uint) error {
 	engine := gin.New()
 	engine.Use(gin.Recovery(), gin.Logger())
 	engine.GET("/", func(c *gin.Context) {
@@ -30,6 +33,9 @@ func Run1(ctx context.Context, port uint) error {
 		// 研发通过代码检查服务是否负载超高，需要熔断暂停服务。
 		c.Status(http.StatusNoContent)
 	})
+
+	//swagger
+	engine.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	//路由组
 	v1 := engine.Group("/router")
 	{

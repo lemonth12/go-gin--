@@ -1,8 +1,8 @@
 package mq
 
 import (
-	"code.avlyun.org/l/class3/server/pkg/log"
 	"github.com/streadway/amqp"
+	"preject/pkg/log"
 )
 
 func NewMq(DSN string) (*amqp.Connection, *amqp.Channel) {

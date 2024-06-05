@@ -11,6 +11,7 @@ var (
 
 type Configs struct {
 	SqlConf []MysqlConf
+	LogConf Log
 }
 
 type MysqlConf struct {
@@ -20,6 +21,10 @@ type MysqlConf struct {
 	Host       string `json:"host"`
 	Database   string `json:"database"`
 	Port       string `json:"port"`
+}
+
+type Log struct {
+	Level string
 }
 
 func InitConf() error {

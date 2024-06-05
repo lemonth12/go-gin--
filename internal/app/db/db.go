@@ -54,7 +54,7 @@ func InitMysql(confs []config.MysqlConf) map[string]*gorm.DB {
 	for _, mysqlConf := range confs {
 		err, mysql := db.GormMysql(mysqlConf)
 		if err != nil {
-			log.Errorf("%s conn fail:%v", mysqlConf.SourceName, err)
+			log.Logger.Errorf("%s conn fail:%v", mysqlConf.SourceName, err)
 			panic(err)
 		}
 		//将创建的sql加入mao

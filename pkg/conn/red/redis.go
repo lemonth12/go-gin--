@@ -1,9 +1,10 @@
 package red
 
 import (
-	"code.avlyun.org/l/class3/server/pkg/log"
 	"context"
+	//"log"
 	"github.com/redis/go-redis/v9"
+	"preject/pkg/log"
 )
 
 func ConnRedis(addr, password string, db int) (*redis.Client, error) {
